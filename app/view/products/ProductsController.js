@@ -18,7 +18,7 @@ Ext.define('MyTestApp.view.products.ProductsController', {
         }
     },
 
-    applyFilters: function ({id, description}, store) {
+    applyFilters: function ({id, name}, store) {
         const filters = [];
 
         id && filters.push({
@@ -27,9 +27,9 @@ Ext.define('MyTestApp.view.products.ProductsController', {
             exactMatch: true
         })
 
-        description && filters.push({
-            property: 'description',
-            value: description,
+        name && filters.push({
+            property: 'name',
+            value: name,
             anyMatch: true
         })
 

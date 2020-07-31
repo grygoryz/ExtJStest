@@ -30,7 +30,7 @@ Ext.define('MyTestApp.view.products.Products', {
                 fieldLabel: 'ID',
                 margin: '0 0 10',
             }, {
-                name: 'description',
+                name: 'name',
                 fieldLabel: 'Описание'
             }]
         }]
