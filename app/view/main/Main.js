@@ -7,7 +7,7 @@ Ext.define('MyTestApp.view.main.Main', {
         'Ext.window.MessageBox',
 
         'MyTestApp.view.main.MainController',
-        'MyTestApp.view.main.List'
+        'MyTestApp.view.products.Products'
     ],
 
     controller: 'main',
@@ -25,7 +25,7 @@ Ext.define('MyTestApp.view.main.Main', {
             xtype: 'button',
             text: 'Товары',
             margin: '0 15',
-            handler: ''
+            handler: 'onAddTabClick'
         },{
             xtype: 'button',
             text: 'Выйти',
@@ -43,7 +43,7 @@ Ext.define('MyTestApp.view.main.Main', {
     items: [{
         title: 'Товары',
         items: [{
-            xtype: 'mainlist'
+            xtype: 'products'
         }]
     }]
 });
