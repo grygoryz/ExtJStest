@@ -14,10 +14,6 @@ Ext.define('MyTestApp.Application', {
         }
     },
 
-    stores: [
-        // add global / shared stores here
-    ],
-
     launch: function () {
         Ext.create({
             xtype: 'login'

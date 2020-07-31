@@ -16,13 +16,12 @@ Ext.define('MyTestApp.view.login.Login', {
     items: {
         xtype: 'form',
         reference: 'form',
+        defaultType: 'textfield',
         items: [{
-            xtype: 'textfield',
             name: 'username',
             fieldLabel: 'Имя пользователя',
             allowBlank: false
         }, {
-            xtype: 'textfield',
             name: 'password',
             fieldLabel: 'Пароль',
             inputType: 'password',

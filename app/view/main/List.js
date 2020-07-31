@@ -6,19 +6,22 @@ Ext.define('MyTestApp.view.main.List', {
     xtype: 'mainlist',
 
     requires: [
-        'MyTestApp.store.Personnel'
+        'MyTestApp.store.Products'
     ],
 
-    title: 'Personnel',
+    title: 'Список товаров',
 
     store: {
-        type: 'personnel'
+        type: 'products'
     },
 
+
     columns: [
-        { text: 'Name',  dataIndex: 'name' },
-        { text: 'Email', dataIndex: 'email', flex: 1 },
-        { text: 'Phone', dataIndex: 'phone', flex: 1 }
+        { text: 'ID',  dataIndex: 'id' },
+        { text: 'Имя', dataIndex: 'name', flex: 1},
+        { text: 'Описание', dataIndex: 'description', flex: 1},
+        { text: 'Цена', dataIndex: 'price'},
+        { text: 'Кол-во', dataIndex: 'count', renderer: 'onCountCellRender'}
     ],
 
     listeners: {

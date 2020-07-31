@@ -1,20 +1,20 @@
-/**
- * This class is the controller for the main view for the application. It is specified as
- * the "controller" of the Main view class.
- *
- * TODO - Replace this content of this view to suite the needs of your application.
- */
 Ext.define('MyTestApp.view.main.MainController', {
     extend: 'Ext.app.ViewController',
 
     alias: 'controller.main',
 
-    onClickButton: function () {
+    onLogoutButtonClick: function () {
         this.getView().destroy();
 
         Ext.create({
             xtype: 'login'
         })
+    },
+
+    onCountCellRender: function (value, meta) {
+        if (value === 0) meta.style = "background-color:red;";
+
+        return value;
     },
 
     onItemSelected: function (sender, record) {
