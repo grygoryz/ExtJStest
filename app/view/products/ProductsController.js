@@ -1,7 +1,10 @@
 Ext.define('MyTestApp.view.products.ProductsController', {
     extend: 'Ext.app.ViewController',
-
     alias: 'controller.products',
+
+    requires: [
+        'MyTestApp.view.productCard.ProductCard'
+    ],
 
     onCountCellRender: function (value, meta) {
         if (value === 0) meta.style = "background-color:red;";
@@ -18,7 +21,21 @@ Ext.define('MyTestApp.view.products.ProductsController', {
         }
     },
 
-    applyFilters: function ({id, name}, store) {
+    onNameCellClick: function (...args) {
+        const record = args[5];
+
+        const card = Ext.create('MyTestApp.view.productCard.ProductCard', {
+            viewModel: {
+                data: {
+                    productInfo: record.data
+                }
+            }
+        });
+
+        card.show();
+    },
+
+    applyFilters: function ({id, description}, store) {
         const filters = [];
 
         id && filters.push({
@@ -27,9 +44,9 @@ Ext.define('MyTestApp.view.products.ProductsController', {
             exactMatch: true
         })
 
-        name && filters.push({
-            property: 'name',
-            value: name,
+        description && filters.push({
+            property: 'description',
+            value: description,
             anyMatch: true
         })
 

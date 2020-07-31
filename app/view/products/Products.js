@@ -30,7 +30,7 @@ Ext.define('MyTestApp.view.products.Products', {
                 fieldLabel: 'ID',
                 margin: '0 0 10',
             }, {
-                name: 'name',
+                name: 'description',
                 fieldLabel: 'Описание'
             }]
         }]
@@ -38,13 +38,9 @@ Ext.define('MyTestApp.view.products.Products', {
 
     columns: [
         {text: 'ID', dataIndex: 'id'},
-        {text: 'Имя', dataIndex: 'name', flex: 1},
+        {text: 'Имя', dataIndex: 'name', flex: 1, listeners: {click: 'onNameCellClick'}},
         {text: 'Описание', dataIndex: 'description', flex: 1},
         {text: 'Цена', dataIndex: 'price'},
         {text: 'Кол-во', dataIndex: 'count', renderer: 'onCountCellRender'}
     ],
-
-    listeners: {
-        //
-    }
 });
