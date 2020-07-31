@@ -15,6 +15,8 @@ Ext.define('MyTestApp.view.main.Main', {
 
     ui: 'navigation',
 
+    padding: '0 0 50',
+
     headerPosition: 'top',
     header: {
         layout: {

@@ -7,4 +7,32 @@ Ext.define('MyTestApp.view.products.ProductsController', {
         if (value === 0) meta.style = "background-color:red;";
         return value;
     },
+
+    onKeyPress: function (field, e) {
+        if (e.getKey() === e.ENTER) {
+            const store = field.up('grid').getStore();
+            const values = field.up('form').getValues()
+
+            store.clearFilter();
+            this.applyFilters(values, store);
+        }
+    },
+
+    applyFilters: function ({id, description}, store) {
+        const filters = [];
+
+        id && filters.push({
+            property: 'id',
+            value: id,
+            exactMatch: true
+        })
+
+        description && filters.push({
+            property: 'description',
+            value: description,
+            anyMatch: true
+        })
+
+        filters.length && store.addFilter(filters);
+    }
 });

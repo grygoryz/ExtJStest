@@ -14,21 +14,25 @@ Ext.define('MyTestApp.view.products.Products', {
     controller: 'products',
 
     tbar: {
-        layout: {
-            type: 'vbox',
-            align: 'start'
-        },
-
-        defaults: {
-            xtype: 'textfield',
-            emptyText: 'Введите фильтр'
-        },
-
         items: [{
-            fieldLabel: 'ID',
-            margin: '0 0 10',
-        }, {
-            fieldLabel: 'Описание'
+            xtype: 'form',
+
+            defaults: {
+                xtype: 'textfield',
+                emptyText: 'Введите фильтр',
+                listeners: {
+                    specialKey: 'onKeyPress'
+                }
+            },
+
+            items: [{
+                name: 'id',
+                fieldLabel: 'ID',
+                margin: '0 0 10',
+            }, {
+                name: 'description',
+                fieldLabel: 'Описание'
+            }]
         }]
     },
 
@@ -41,6 +45,6 @@ Ext.define('MyTestApp.view.products.Products', {
     ],
 
     listeners: {
-        select: 'onItemSelected'
+        //
     }
 });

@@ -15,7 +15,6 @@ Ext.define('MyTestApp.view.login.Login', {
 
     items: {
         xtype: 'form',
-        reference: 'form',
         defaultType: 'textfield',
         items: [{
             name: 'username',
