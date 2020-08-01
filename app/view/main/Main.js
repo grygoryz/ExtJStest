@@ -37,12 +37,5 @@ Ext.define('MyTestApp.view.main.Main', {
 
     defaults: {
         bodyPadding: 20,
-    },
-
-    items: [{
-        title: 'Товары',
-        items: [{
-            xtype: 'products'
-        }]
-    }]
+    }
 });

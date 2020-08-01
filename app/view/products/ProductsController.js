@@ -7,7 +7,7 @@ Ext.define('MyTestApp.view.products.ProductsController', {
     ],
 
     onCountCellRender: function (value, meta) {
-        if (value === 0) meta.style = "background-color:red;";
+        if (value === 0 && meta) meta.style = "background-color:red;";
         return value;
     },
 
@@ -23,12 +23,16 @@ Ext.define('MyTestApp.view.products.ProductsController', {
 
     onNameCellClick: function (...args) {
         const record = args[5];
+        const updateGrid = this.updateGrid.bind(this);
 
         const card = Ext.create('MyTestApp.view.productCard.ProductCard', {
             viewModel: {
                 data: {
                     theProduct: record.data
                 }
+            },
+            listeners: {
+                updateGrid: updateGrid
             }
         });
 
@@ -51,5 +55,9 @@ Ext.define('MyTestApp.view.products.ProductsController', {
         })
 
         filters.length && store.addFilter(filters);
+    },
+
+    updateGrid: function () {
+       this.getView().getView().refresh()
     }
 });

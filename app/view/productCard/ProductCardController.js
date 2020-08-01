@@ -8,22 +8,19 @@ Ext.define('MyTestApp.view.productCard.ProductCardController', {
         const prevData = viewModel.initialConfig.data.theProduct;
         const currData = viewModel.get('theProduct');
 
-        if (prevData.price === currData.price && prevData.count === currData.count) {
-            this.hideView()
-        } else {
-            this.applyChanges(currData);
-        }
+        if (prevData.price !== currData.price || prevData.count !== currData.count) this.applyChanges(currData);
+        this.hideView()
     },
 
-    applyChanges: function ({id, description, name, price, count}) {
+    applyChanges: function ({id, price, count}) {
         const store = Ext.getStore('products');
-        const Product = store.getModel();
+        const record = store.findRecord('id', id);
 
-        const editedProduct = new Product({id, description, name, price, count});
-        store.insert(store.find('id', id), editedProduct);
+        record.set('count', count);
+        record.set('price', price);
 
+        this.fireViewEvent('updateGrid')
         Ext.Msg.alert("Сообщение о наличии сохраненных данных.", "Данные товара были изменены.");
-        this.hideView()
     },
 
     hideView: function () {

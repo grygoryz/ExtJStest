@@ -15,9 +15,9 @@ Ext.define('MyTestApp.view.main.MainController', {
     },
 
     onAddTabClick: function (button) {
-        const tabPanel = button.up("tabpanel");
+        const tabPanel = button.up('tabpanel');
         tabPanel.add({
-            title: "Товары",
+            title: 'Товары',
             items: [{
                 xtype: 'products'
             }]
