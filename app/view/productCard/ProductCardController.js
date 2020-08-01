@@ -3,14 +3,30 @@ Ext.define('MyTestApp.view.productCard.ProductCardController', {
     alias: 'controller.productCard',
 
     onSaveButtonClick: function () {
-        const viewModel = this.getView().getViewModel()
-        const {price: oldPrice, count: oldCount} = viewModel.initialConfig.data.productInfo
-        const {count, price} = viewModel.config.data.productInfo;
+        const viewModel = this.getViewModel()
 
-        if (oldPrice === price && oldCount === count) return;
+        const prevData = viewModel.initialConfig.data.theProduct;
+        const currData = viewModel.get('theProduct');
 
-        Ext.Msg.alert("Сообщение о наличии сохраненных данных.", "Данные товара были изменены.")
+        if (prevData.price === currData.price && prevData.count === currData.count) {
+            this.hideView()
+        } else {
+            this.applyChanges(currData);
+        }
+    },
+
+    applyChanges: function ({id, description, name, price, count}) {
+        const store = Ext.getStore('products');
+        const Product = store.getModel();
+
+        const editedProduct = new Product({id, description, name, price, count});
+        store.insert(store.find('id', id), editedProduct);
+
+        Ext.Msg.alert("Сообщение о наличии сохраненных данных.", "Данные товара были изменены.");
+        this.hideView()
+    },
+
+    hideView: function () {
+        this.getView().hide();
     }
-
-
 });

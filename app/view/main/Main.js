@@ -3,9 +3,6 @@ Ext.define('MyTestApp.view.main.Main', {
     xtype: 'app-main',
 
     requires: [
-        'Ext.plugin.Viewport',
-        'Ext.window.MessageBox',
-
         'MyTestApp.view.main.MainController',
         'MyTestApp.view.products.Products'
     ],
@@ -28,11 +25,11 @@ Ext.define('MyTestApp.view.main.Main', {
             text: 'Товары',
             margin: '0 15',
             handler: 'onAddTabClick'
-        },{
+        }, {
             xtype: 'button',
             text: 'Выйти',
             handler: 'onLogoutButtonClick',
-        },{
+        }, {
             xtype: 'tbspacer',
             flex: 4
         }]

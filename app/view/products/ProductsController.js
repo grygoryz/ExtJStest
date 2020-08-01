@@ -27,7 +27,7 @@ Ext.define('MyTestApp.view.products.ProductsController', {
         const card = Ext.create('MyTestApp.view.productCard.ProductCard', {
             viewModel: {
                 data: {
-                    productInfo: record.data
+                    theProduct: record.data
                 }
             }
         });

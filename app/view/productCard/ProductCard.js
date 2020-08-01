@@ -2,7 +2,15 @@ Ext.define('MyTestApp.view.productCard.ProductCard', {
     extend: 'Ext.form.Panel',
     xtype: 'widget.productCard',
 
+    requires: [
+        'MyTestApp.view.productCard.ProductCardController',
+        'MyTestApp.view.productCard.ProductCardModel'
+    ],
+
     controller: 'productCard',
+    viewModel: {
+        type: 'productCard'
+    },
 
     width: 500,
     minHeight: 250,
@@ -10,48 +18,36 @@ Ext.define('MyTestApp.view.productCard.ProductCard', {
     modal: true,
     floating: true,
     centered: true,
-    // layout: {
-    //  to do
-    // },
 
-    bind: 'Карточка товара: {productInfo.name}',
+    bind: 'Карточка товара: {theProduct.name}',
 
     items: [{
         xtype: 'displayfield',
         fieldLabel: 'ID',
         name: 'id',
-        bind: {
-            value: '{productInfo.id}'
-        }
+        bind: '{theProduct.id}'
     }, {
         xtype: 'displayfield',
         fieldLabel: 'Наименование',
         name: 'name',
-        bind: {
-            value: '{productInfo.description}'
-        }
+        bind: '{theProduct.description}'
     }, {
         xtype: 'numberfield',
         fieldLabel: 'Цена',
         anchor: '100%',
-        bind: {
-            value: '{productInfo.price}'
-        },
+        bind: '{theProduct.price}',
         minValue: 0
     }, {
         xtype: 'numberfield',
         fieldLabel: 'Кол-во',
         anchor: '100%',
         allowDecimals: false,
-        bind: {
-            value: '{productInfo.count}'
-        },
+        bind: '{theProduct.count}',
         minValue: 0
     }],
 
     buttons: [{
         text: 'Сохранить',
-        //formBind: true,
         handler: 'onSaveButtonClick'
     }, {
         text: 'Отмена',

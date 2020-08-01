@@ -3,14 +3,13 @@ Ext.define('MyTestApp.view.products.Products', {
     xtype: 'widget.products',
 
     requires: [
-        'MyTestApp.store.Products'
+        'MyTestApp.store.Products',
+        'MyTestApp.view.products.ProductsController'
     ],
 
     title: 'Список товаров',
 
-    store: {
-        type: 'products'
-    },
+    store: 'products',
     controller: 'products',
 
     tbar: {
