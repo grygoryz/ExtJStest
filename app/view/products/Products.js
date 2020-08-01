@@ -9,7 +9,9 @@ Ext.define('MyTestApp.view.products.Products', {
 
     title: 'Список товаров',
 
-    store: 'products',
+    store: {
+        type: 'products'
+    },
     controller: 'products',
 
     tbar: {

@@ -8,10 +8,6 @@ Ext.define('MyTestApp.Application', {
         'MyTestApp.store.Products'
     ],
 
-    stores: [
-        'Products'
-    ],
-
     quickTips: false,
     platformConfig: {
         desktop: {

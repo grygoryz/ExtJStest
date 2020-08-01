@@ -58,6 +58,6 @@ Ext.define('MyTestApp.view.products.ProductsController', {
     },
 
     updateGrid: function () {
-       this.getView().getView().refresh()
+        this.getView().getView().refresh()
     }
 });
