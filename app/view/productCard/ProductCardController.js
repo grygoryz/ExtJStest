@@ -16,6 +16,8 @@ Ext.define('MyTestApp.view.productCard.ProductCardController', {
         const store = Ext.getStore('products');
         const record = store.findRecord('id', id);
 
+        if (!record) return;
+
         record.set('count', count);
         record.set('price', price);
 

@@ -51,8 +51,6 @@ Ext.define('MyTestApp.view.productCard.ProductCard', {
         handler: 'onSaveButtonClick'
     }, {
         text: 'Отмена',
-        listeners: {
-            click: 'closeView'
-        }
+        handler: 'closeView'
     }]
 });

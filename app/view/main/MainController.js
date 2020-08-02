@@ -16,11 +16,16 @@ Ext.define('MyTestApp.view.main.MainController', {
 
     onAddTabClick: function (button) {
         const tabPanel = button.up('tabpanel');
+
         tabPanel.add({
             title: 'Товары',
             items: [{
                 xtype: 'products'
             }]
         })
+    },
+
+    onTabChange: function (tabPanel, newContent) {
+        newContent.down('grid').getView().refresh()
     }
 });

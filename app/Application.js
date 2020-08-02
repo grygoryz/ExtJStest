@@ -4,8 +4,7 @@ Ext.define('MyTestApp.Application', {
     name: 'MyTestApp',
 
     requires: [
-        'MyTestApp.view.login.Login',
-        'MyTestApp.store.Products'
+        'MyTestApp.view.login.Login'
     ],
 
     quickTips: false,

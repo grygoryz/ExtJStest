@@ -2,8 +2,8 @@ Ext.define('MyTestApp.view.login.LoginController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.login',
 
-    onLoginClick: function (loginButton) {
-        const form = loginButton.up('window').down('form').getForm();
+    onLoginClick: function () {
+        const form = this.getView().down('form').getForm();
         const {username, password} = form.getValues();
 
         if (username === 'admin' && password === 'padmin') {

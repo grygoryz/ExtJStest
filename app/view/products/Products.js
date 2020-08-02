@@ -43,5 +43,5 @@ Ext.define('MyTestApp.view.products.Products', {
         {text: 'Описание', dataIndex: 'description', flex: 1},
         {text: 'Цена', dataIndex: 'price'},
         {text: 'Кол-во', dataIndex: 'count', renderer: 'onCountCellRender'}
-    ],
+    ]
 });

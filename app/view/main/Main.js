@@ -35,6 +35,10 @@ Ext.define('MyTestApp.view.main.Main', {
         }]
     },
 
+    listeners: {
+        tabchange: 'onTabChange'
+    },
+
     defaults: {
         bodyPadding: 20,
     }

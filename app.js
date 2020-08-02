@@ -7,10 +7,4 @@ Ext.application({
     name: 'MyTestApp',
 
     extend: 'MyTestApp.Application',
-
-    requires: [
-        'MyTestApp.view.main.Main'
-    ],
-
-    //mainView: 'MyTestApp.view.main.Main'
 });
