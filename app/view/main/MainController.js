@@ -17,12 +17,14 @@ Ext.define('MyTestApp.view.main.MainController', {
     onAddTabClick: function (button) {
         const tabPanel = button.up('tabpanel');
 
-        tabPanel.add({
+        const tab = tabPanel.add({
             title: 'Товары',
             items: [{
                 xtype: 'products'
             }]
         })
+
+        tabPanel.items.length === 1 && tabPanel.setActiveTab(tab)
     },
 
     onTabChange: function (tabPanel, newContent) {
